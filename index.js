@@ -42,16 +42,17 @@ app.post("/api/uploadfile", councilControl.csvpost);
  * /api/uploadfile:
  *  post:
  *      description: uploadfileCSV
- *      paramaters:
- *      - name: title
- *        description: CSVFile
- *        in: formData
- *        required: true
- *        type: string
+ *      parameters:
+ *          - in: path
+ *            name: CSVFile
+ *            schema:
+ *              type: string
+ *            required: true
+ *            description: search of tha customers.csv
+ *            example: CSVFile
  *      responses:
  *          201:
  *              description: Created
- * 
  */
 
  app.get("/api/aggregated", councilControl.getaggregated)
@@ -68,9 +69,17 @@ app.post("/api/uploadfile", councilControl.csvpost);
 app.get("/api/search/:firstname", councilControl.getsearch);
 /**
  * @swagger
- * /api/search/firstname:
+ * /api/search/{firstname}:
  *  get:
- *      description: Get all search/:firstname
+ *      description: Get search/:firstname
+ *      parameters:
+ *          - in: path
+ *            name: firstname
+ *            schema:
+ *              type: integer
+ *            required: true
+ *            description: search of tha firstname
+ *            example: firstname
  *      responses:
  *          200:
  *              description: success

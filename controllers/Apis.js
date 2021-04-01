@@ -17,8 +17,8 @@ module.exports = {
                 (err, client) => {
                     if (err) throw err;
                     client
-                    .db("Technical")
-                    .collection("customers")
+                    .db("")
+                    .collection("")
                     .insertMany(csvData, (err, res) => {
                         if (err) throw err;
                         console.log(`Inserted: ${res.insertedCount} rows`);
